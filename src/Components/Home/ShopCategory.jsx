@@ -14,7 +14,7 @@ const ShopCategory = () => {
     return (
         <Tabs>
     <TabList>
-      <Tab onClick={()=> handleCar("sports")}>sports car</Tab>
+      <Tab onClick={()=> handleCar("car")}>normal car</Tab>
       <Tab onClick={()=> handleCar("truck")}>truck</Tab>
       <Tab onClick={()=> handleCar("poilice")}>mini police car</Tab>
     </TabList>

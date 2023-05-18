@@ -10,7 +10,6 @@ const ToyInput = () => {
     const handleOp = event =>{
         setCategory(event.target.value) 
     }
-    console.log(category)
     const handleSubmit = event =>{
         event.preventDefault();
         setMsg('')

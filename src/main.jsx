@@ -9,6 +9,10 @@ import {
 import AuthProvider from './Provider/AuthProvider';
 import Login from './Components/User/Login';
 import Register from './Components/User/Register';
+import Home from './Components/Home/Home';
+import ToyInput from './Components/Items/ToyInput';
+import AllToys from './Components/Items/AllToys';
+import MyToys from './Components/Items/MyToys';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <h1>hello</h1>
+        element: <Home></Home>
       },
       {
         path: '/login',
@@ -26,6 +30,18 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/add',
+        element: <ToyInput></ToyInput>
+      },
+      {
+        path: '/toys',
+        element: <AllToys></AllToys>
+      },
+      {
+        path: '/myToys',
+        element: <MyToys></MyToys>
       },
     ]
   },

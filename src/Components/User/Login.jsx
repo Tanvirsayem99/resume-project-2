@@ -13,8 +13,9 @@ const Login = () => {
         const password = form.password.value;
         loginUSer(email, password)
         .then(data =>{
-            event.rest()
+            form.reset()
         })
+        
         
         
     }

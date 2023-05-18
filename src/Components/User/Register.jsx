@@ -32,7 +32,7 @@ const Register = () => {
             <div className='flex gap-2'>
             <p>Already have account?</p><Link to="/login">Login</Link>
             </div>
-            <input type="submit" value="Login" className='cursor-pointer'/>
+            <input type="submit" value="Register" className='cursor-pointer'/>
         </form>
     );
 };

@@ -17,11 +17,13 @@ import Details from './Components/Items/Details';
 import UpdateToy from './Components/Items/UpdateToy';
 import SingleCategory from './Components/Home/SingleCategory';
 import PrivateRoute from './Private/PrivateRoute';
+import ErrorPage from './ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',

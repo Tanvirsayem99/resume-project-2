@@ -2,8 +2,10 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import useTile from '../../hooks/useTitle';
 
 const Details = () => {
+    useTile('Toy Details')
     const {id} = useParams();
     const [user, setUser] = useState([])
     useEffect(()=>{

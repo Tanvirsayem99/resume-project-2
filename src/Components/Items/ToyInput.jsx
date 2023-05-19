@@ -3,9 +3,11 @@ import { useState } from "react";
 import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTile from "../../hooks/useTitle";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const ToyInput = () => {
+  useTile('Add a Toy')
   const { user } = useContext(AuthContext);
   const [category, setCategory] = useState("");
   const [msg, setMsg] = useState("");

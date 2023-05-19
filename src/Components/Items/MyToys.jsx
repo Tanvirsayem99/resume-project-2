@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
+import useTile from "../../hooks/useTitle";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MySingleToys from "./MySingleToys";
 
 const MyToys = () => {
+  useTile('My Toy')
   const { user, loading } = useContext(AuthContext);
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -16,6 +18,10 @@ const MyToys = () => {
   
   return (
     <div className="w-11/12 mx-auto">
+      <div className="text-right my-10">
+        <button>price High To Low</button>
+        <button>Sort By Price</button>
+      </div>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

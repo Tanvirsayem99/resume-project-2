@@ -3,9 +3,11 @@ import { useState } from "react";
 import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTile from "../../hooks/useTitle";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const UpdateToy = () => {
+  useTile('Update Toy')
   const user = useLoaderData();
   const { id } = useParams();
 

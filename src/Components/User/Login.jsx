@@ -1,9 +1,11 @@
 import React from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useTile from '../../hooks/useTitle';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
+    useTile('Login')
     const {loginUSer, googleLogin} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();

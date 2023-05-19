@@ -1,9 +1,11 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import useTile from '../../hooks/useTitle';
 import SingleToy from './SingleToy';
 
 const AllToys = () => {
+  useTile('All Toy')
     const [datas, setDatas] = useState([])
     const [loader, setLoader] = useState(true)
     useEffect(()=>{

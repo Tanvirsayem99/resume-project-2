@@ -5,12 +5,13 @@ import SingleToy from './SingleToy';
 
 const AllToys = () => {
     const [datas, setDatas] = useState([])
-    const [count, setCount] = useState(false)
+    const [loader, setLoader] = useState(true)
     useEffect(()=>{
         fetch('http://localhost:5000/allToys')
         .then(res => res.json())
         .then(items => {
-            setDatas(items.slice(0,20))
+            setDatas(items.slice(0,20)),
+            setLoader(false)
         })
         
     },[])
@@ -28,6 +29,13 @@ const AllToys = () => {
         form.reset()
         
     }
+    if(loader){
+      return (
+          <div className="text-center my-10">
+            <button className="btn btn-square loading "></button>
+          </div>
+        );
+  }
     return (
         <div className='w-11/12 mx-auto'>
             <form className='text-center my-10' onSubmit={() =>handleSearch (event)}>
@@ -49,7 +57,7 @@ const AllToys = () => {
     <tbody className='w-11/12 mx-auto'>
       
       {
-                datas.map(e => <SingleToy  key={e._id} data={e} ></SingleToy>)
+                datas.map(e => <SingleToy loader={loader} key={e._id} data={e} ></SingleToy>)
             }
       
       

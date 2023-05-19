@@ -6,16 +6,17 @@ import 'react-tabs/style/react-tabs.css';
 import SingleCategory from './SingleCategory';
 const ShopCategory = () => {
       const [items, setItems] = useState([])
+      const[loader, setLoader] = useState(true)
      useEffect(()=>{
       fetch(`http://localhost:5000/home/car`)
       .then(res => res.json())
-      .then(data => setItems(data))
+      .then(data => {setItems(data), setLoader(false)})
      },[]) 
     
       const handleCategory = event =>{
         fetch(`http://localhost:5000/home/${event}`)
       .then(res => res.json())
-      .then(data => setItems(data))
+      .then(data => {setItems(data), setLoader(false)})
       }
     return (
         <Tabs>
@@ -26,7 +27,7 @@ const ShopCategory = () => {
     </TabList>
 
     <TabPanel>
-      <SingleCategory items ={items}></SingleCategory>
+      <SingleCategory items ={items} loader={loader}></SingleCategory>
     </TabPanel>
     <TabPanel>
     <SingleCategory items ={items}></SingleCategory>

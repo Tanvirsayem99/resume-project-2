@@ -1,10 +1,14 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-    const {loginUSer} = useContext(AuthContext);
+    const {loginUSer, googleLogin} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
+  
 
     const handleLogin = event =>{
         event.preventDefault();
@@ -14,10 +18,21 @@ const Login = () => {
         loginUSer(email, password)
         .then(data =>{
             form.reset()
+            navigate(from, {replace:true})
         })
-        
-        
-        
+        .catch(error =>{
+            console.log(error)
+        })
+    }
+    const handleGoogleLogin =() =>{
+        googleLogin()
+        .then(data =>{
+            
+            navigate(from, {replace:true})
+        })
+        .catch(error =>{
+            console.log(error)
+        })
     }
     return (
         <form className='grid w-96 mx-auto gap-10 bg-orange-200 p-5 rounded-md' onSubmit={handleLogin}>
@@ -28,6 +43,7 @@ const Login = () => {
             <p>don't have account?</p><Link to="/register">Register</Link>
             </div>
             <input type="submit" value="Login" className='cursor-pointer'/>
+            <div onClick={handleGoogleLogin} className="cursor-pointer">Google login</div>
         </form>
     );
 };

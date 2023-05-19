@@ -16,6 +16,7 @@ import MyToys from './Components/Items/MyToys';
 import Details from './Components/Items/Details';
 import UpdateToy from './Components/Items/UpdateToy';
 import SingleCategory from './Components/Home/SingleCategory';
+import PrivateRoute from './Private/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/add',
-        element: <ToyInput></ToyInput>
+        element: <PrivateRoute><ToyInput></ToyInput></PrivateRoute>
       },
       {
         path: '/toys',
@@ -44,11 +45,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/myToys',
-        element: <MyToys></MyToys>
+        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
       },
       {
         path: '/details/:id',
-        element: <Details></Details>
+        element: <PrivateRoute><Details></Details></PrivateRoute>
       },
       {
         path: '/update/:id',

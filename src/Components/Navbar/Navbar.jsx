@@ -8,7 +8,6 @@ const Navbar = () => {
     const handleLogOut =() =>{
         logOut()
     }
-    console.log(user?.photoURL)
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -61,7 +60,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {
-            user?.photoURL? <img src={user.photoURL}/>: ''
+            user?.photoURL? <img src={user.photoURL} className="w-10"/>: ''
           }
         </div>
       </div>

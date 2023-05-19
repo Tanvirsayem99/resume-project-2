@@ -15,6 +15,7 @@ import AllToys from './Components/Items/AllToys';
 import MyToys from './Components/Items/MyToys';
 import Details from './Components/Items/Details';
 import UpdateToy from './Components/Items/UpdateToy';
+import SingleCategory from './Components/Home/SingleCategory';
 
 const router = createBrowserRouter([
   {

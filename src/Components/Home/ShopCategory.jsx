@@ -1,32 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import SingleCategory from './SingleCategory';
 const ShopCategory = () => {
-  const [items, setItems] = useState([])
-  const handleCar = category =>{
-    useEffect(()=>{
-      fetch(`http://localhost:5000/allToys/${category}`)
+      const [items, setItems] = useState([])
+     useEffect(()=>{
+      fetch(`http://localhost:5000/home/car`)
       .then(res => res.json())
       .then(data => setItems(data))
-  },[])
-  }
+     },[]) 
+    
+      const handleCategory = event =>{
+        fetch(`http://localhost:5000/home/${event}`)
+      .then(res => res.json())
+      .then(data => setItems(data))
+      }
     return (
         <Tabs>
     <TabList>
-      <Tab onClick={()=> handleCar("car")}>normal car</Tab>
-      <Tab onClick={()=> handleCar("truck")}>truck</Tab>
-      <Tab onClick={()=> handleCar("poilice")}>mini police car</Tab>
+      <Tab><p onClick={()=>handleCategory('car')}>normal car</p></Tab>
+      <Tab><p onClick={()=>handleCategory('truck')}>truck</p></Tab>
+      <Tab><p onClick={()=>handleCategory('policeCar')}>policeCar</p></Tab>
     </TabList>
 
     <TabPanel>
-      <h2>Any content 1</h2>
+      <SingleCategory items ={items}></SingleCategory>
     </TabPanel>
     <TabPanel>
-      <h2>Any content 2</h2>
+    <SingleCategory items ={items}></SingleCategory>
     </TabPanel>
     <TabPanel>
-      <h2>Any content 3</h2>
+    <SingleCategory items ={items}></SingleCategory>
     </TabPanel>
   </Tabs>
     );

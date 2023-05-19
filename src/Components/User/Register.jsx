@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useTile from '../../hooks/useTitle';
@@ -6,6 +7,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const Register = () => {
     useTile('Register')
+    const [faulty, setFaulty] = useState('')
     const {createUser, updateUser, logOut} = useContext(AuthContext)
     const navigate = useNavigate();
     const from = '/login'
@@ -22,6 +24,9 @@ const Register = () => {
             updateUser(loggedUser, name, image)
             logOut();
             navigate(from, {replace:true});
+        })
+        .catch(error =>{
+
         })
     }
     return (

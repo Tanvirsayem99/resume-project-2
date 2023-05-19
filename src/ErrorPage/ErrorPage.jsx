@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
@@ -15,6 +16,9 @@ const ErrorPage = () => {
       <p className="text-center">
         <i>{Error.statusText || Error.message}</i>
       </p>
+      <div className="text-center">
+      <Link to="/">Back To Home</Link>
+      </div>
     </div>
   );
 };

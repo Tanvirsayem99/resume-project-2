@@ -26,9 +26,10 @@ const Register = () => {
             navigate(from, {replace:true});
         })
         .catch(error =>{
-
+            setFaulty(error.message.split(' ')[2].split('/')[1].split(')')[0])
         })
     }
+    console.log(faulty)
     return (
         <form className='grid w-96 mx-auto gap-10 bg-orange-200 p-5 rounded-md' onSubmit={handleRegister}>
             <h1 className='text-center font-semibold text-2xl'>Register</h1>
@@ -39,6 +40,9 @@ const Register = () => {
             <div className='flex gap-2'>
             <p>Already have account?</p><Link to="/login">Login</Link>
             </div>
+            {
+                faulty? <p className='text-red-500'>{faulty} Please Try Again</p> : ''
+            }
             <input type="submit" value="Register" className='cursor-pointer'/>
         </form>
     );

@@ -16,7 +16,7 @@ const MyToys = () => {
     fetch(`http://localhost:5000/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setItems(data));
-  }, []);
+  }, [user]);
   const handlesortHigh = () => {
     
     const result = items.sort((a, b)=> ( b.price - a.price ))

@@ -9,7 +9,7 @@ const AllToys = () => {
     const [datas, setDatas] = useState([])
     const [loader, setLoader] = useState(true)
     useEffect(()=>{
-        fetch('http://localhost:5000/allToys')
+        fetch('https://assignment-11-server-one-blush.vercel.app/allToys')
         .then(res => res.json())
         .then(items => {
             setDatas(items.slice(0,20)),
@@ -25,7 +25,7 @@ const AllToys = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        fetch(`http://localhost:5000/allToys/${name}`)
+        fetch(`https://assignment-11-server-one-blush.vercel.app/allToys/${name}`)
         .then(res => res.json())
         .then(data => setDatas(data))
         form.reset()

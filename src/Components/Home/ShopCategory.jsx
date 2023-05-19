@@ -8,13 +8,13 @@ const ShopCategory = () => {
       const [items, setItems] = useState([])
       const[loader, setLoader] = useState(true)
      useEffect(()=>{
-      fetch(`http://localhost:5000/home/car`)
+      fetch(`https://assignment-11-server-one-blush.vercel.app/home/car`)
       .then(res => res.json())
       .then(data => {setItems(data), setLoader(false)})
      },[]) 
     
       const handleCategory = event =>{
-        fetch(`http://localhost:5000/home/${event}`)
+        fetch(`https://assignment-11-server-one-blush.vercel.app/home/${event}`)
       .then(res => res.json())
       .then(data => {setItems(data), setLoader(false)})
       }

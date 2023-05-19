@@ -56,7 +56,7 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <UpdateToy></UpdateToy>,
-        loader: ({params}) => fetch(`http://localhost:5000/update/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-11-server-one-blush.vercel.app/update/${params.id}`)
       },
     ]
   },

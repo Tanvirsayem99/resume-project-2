@@ -42,7 +42,7 @@ const ToyInput = () => {
       quantity,
       description,
     };
-    fetch("http://localhost:5000/addToys", {
+    fetch("https://assignment-11-server-one-blush.vercel.app/addToys", {
       method: "POST",
       headers: {
         "content-type": "application/json",

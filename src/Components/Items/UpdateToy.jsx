@@ -20,8 +20,8 @@ const UpdateToy = () => {
     const description = form.description.value;
 
     const items = { price, quantity, description };
-    fetch(`http://localhost:5000/update/${id}`, {
-      method: "PUT",
+    fetch(`https://assignment-11-server-one-blush.vercel.app/update/${id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },

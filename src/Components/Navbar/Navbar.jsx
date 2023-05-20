@@ -8,6 +8,7 @@ const Navbar = () => {
     const handleLogOut =() =>{
         logOut()
     }
+    
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -38,7 +39,7 @@ const Navbar = () => {
             <NavLink to="/myToys" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>My Toys</NavLink>
             <NavLink to="/add" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Add A Toy</NavLink>
             {
-                user? <NavLink onClick={handleLogOut}>Log Out</NavLink> : <NavLink to="/login" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Login</NavLink>
+                user? <NavLink onClick={handleLogOut} className="btn btn-active btn-secondary">Log Out</NavLink> : <NavLink to="/login" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Login</NavLink>
             }
             <NavLink to="/blog" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Blog</NavLink>
             </ul>
@@ -53,14 +54,17 @@ const Navbar = () => {
             <NavLink to="/myToys" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>My Toys</NavLink>
             <NavLink to="/add" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Add A Toy</NavLink>
             {
-                user? <NavLink onClick={handleLogOut}>Log Out</NavLink> : <NavLink to="/login" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Login</NavLink>
+                user? <NavLink onClick={handleLogOut} className="btn btn-active btn-secondary">Log Out</NavLink> : <NavLink to="/login" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Login</NavLink>
             }
             <NavLink to="/blog" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Blog</NavLink>
           
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end flex gap-3">
           {
-            user?.photoURL? <img src={user.photoURL} className="w-10"/>: ''
+            user?.displayName? <p className="text-sm">{user.displayName}</p>: ''
+          }
+          {
+            user?.photoURL? <img src={user.photoURL} className="w-10 rounded-full"/>: ''
           }
         </div>
       </div>

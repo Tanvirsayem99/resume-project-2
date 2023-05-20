@@ -47,9 +47,12 @@ const Login = () => {
             <h1 className='text-center font-semibold text-2xl text-white'>Login</h1>
             <div className='grid'>
             <span className='text-white ml-2'>Email</span>
-            <input type="email" name='email' required className='bg-slate-200 border-b-2 bg-transparent focus:bg-white duration-1000 transition '/>
+            <input type="email" name='email' required className=' border-b-2 bg-transparent focus:bg-white duration-1000 transition outline-none py-2'/>
             </div>
-            <input type="password" name='password' required className='bg-slate-200 border border-black'/>
+            <div className='grid'>
+                <span className='text-white ml-2'>Password</span>
+            <input type="password" name='password' required className=' border-b-2 bg-transparent focus:bg-white duration-1000 transition outline-none py-2'/>
+            </div>
             <div className='flex gap-2'>
             <p className='text-white'>don't have account?</p><Link className='text-white' to="/register">Register</Link>
             </div>

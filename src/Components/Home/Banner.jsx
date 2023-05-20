@@ -34,12 +34,12 @@ const Banner = () => {
         <img
           src={banner}
           alt=""
-          className="car left-6 md:w-6/12 absolute md:bottom-0 md:right-0"
+          className="car    md:w-6/12 absolute md:bottom-0 -right-5  md:right-0"
         />
         <img
           src={colors}
           alt=""
-          className="color left-6 absolute bottom-0 md:right-12 -z-10 md:w-3/6"
+          className="color relative  md:absolute bottom-0 md:right-12  -z-10 md:w-3/6"
         />
       </div>
     </div>

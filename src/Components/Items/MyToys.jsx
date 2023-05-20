@@ -18,24 +18,21 @@ const MyToys = () => {
       .then((data) => setItems(data));
   }, [user]);
   const handlesortHigh = () => {
-    
     const result = items.sort((a, b)=> ( b.price - a.price ))
     
   setValue(result)
   setValue([])
 }
   const handlesortLow = () => {
-    setValue('')
     const result = items.sort((a, b)=> (a.price - b.price ))
-    
   setValue(result)
   setValue([])
 }
   return (
     <div className="w-11/12 mx-auto">
       <div className="justify-end my-10 flex gap-5">
-        <button onClick={handlesortHigh}>price High To Low</button>
-        <button onClick={handlesortLow}>Sort By Price</button>
+        <button onClick={handlesortHigh} className="btn btn-outline">price High To Low</button>
+        <button onClick={handlesortLow} className="btn btn-outline">Price low to high</button>
       </div>
       <div className="overflow-x-auto">
         <table className="table w-full">
@@ -46,10 +43,12 @@ const MyToys = () => {
               <th>Category</th>
               <th>Price</th>
               <th>Quantity</th>
-              <th>Action</th>
+              <th>Update</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody className="w-11/12 mx-auto">
+            
             {value.length !== 0? value.map((e) => (
               <MySingleToys key={e._id} data={e}></MySingleToys>
             )) :items.map((e) => (

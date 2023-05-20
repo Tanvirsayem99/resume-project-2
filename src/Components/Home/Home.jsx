@@ -3,6 +3,8 @@ import useTile from '../../hooks/useTitle';
 import Banner from './Banner';
 import Gallery from './Gallery';
 import ShopCategory from './ShopCategory';
+import StoredToy from './StoredToy';
+import TopSelling from './TopSelling';
 
 const Home = () => {
     useTile('home')
@@ -11,6 +13,8 @@ const Home = () => {
             <Banner></Banner>
             <Gallery></Gallery>
             <ShopCategory></ShopCategory>
+            <StoredToy></StoredToy>
+            <TopSelling></TopSelling>
         </div>
     );
 };

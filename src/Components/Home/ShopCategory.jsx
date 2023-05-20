@@ -8,23 +8,25 @@ const ShopCategory = () => {
       const [items, setItems] = useState([])
       const[loader, setLoader] = useState(true)
      useEffect(()=>{
-      fetch(`https://assignment-11-server-one-blush.vercel.app/home/car`)
+      fetch(`https://assignment-11-rho.vercel.app/home/car`)
       .then(res => res.json())
       .then(data => {setItems(data), setLoader(false)})
      },[]) 
     
       const handleCategory = event =>{
-        fetch(`https://assignment-11-server-one-blush.vercel.app/home/${event}`)
+        fetch(`https://assignment-11-rho.vercel.app/home/${event}`)
       .then(res => res.json())
       .then(data => {setItems(data), setLoader(false)})
       }
     return (
-        <Tabs>
+        <Tabs className="w-11/12 mx-auto">
+    
     <TabList>
       <Tab><p onClick={()=>handleCategory('car')}>normal car</p></Tab>
       <Tab><p onClick={()=>handleCategory('truck')}>truck</p></Tab>
       <Tab><p onClick={()=>handleCategory('policeCar')}>policeCar</p></Tab>
     </TabList>
+  
 
     <TabPanel>
       <SingleCategory items ={items} loader={loader}></SingleCategory>

@@ -25,7 +25,7 @@ const MySingleToys = ({data}) => {
                 reverseButtons: true
               }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`https://assignment-11-server-one-blush.vercel.app/delete/${id}`,{
+                    fetch(`https://assignment-11-rho.vercel.app/delete/${id}`,{
             method : 'DELETE',
         })
         .then(data =>{

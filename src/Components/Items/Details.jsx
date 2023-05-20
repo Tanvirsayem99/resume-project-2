@@ -9,7 +9,7 @@ const Details = () => {
     const {id} = useParams();
     const [user, setUser] = useState([])
     useEffect(()=>{
-        fetch(`https://assignment-11-server-one-blush.vercel.app/details/${id}`)
+        fetch(`https://assignment-11-rho.vercel.app/details/${id}`)
         .then(res => res.json())
         .then(data => setUser(data))
     },[])

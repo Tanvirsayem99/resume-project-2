@@ -18,6 +18,7 @@ import UpdateToy from './Components/Items/UpdateToy';
 import SingleCategory from './Components/Home/SingleCategory';
 import PrivateRoute from './Private/PrivateRoute';
 import ErrorPage from './ErrorPage/ErrorPage';
+import Blog from './Components/Items/Blog';
 
 const router = createBrowserRouter([
   {
@@ -56,7 +57,11 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <UpdateToy></UpdateToy>,
-        loader: ({params}) => fetch(`https://assignment-11-server-one-blush.vercel.app/update/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-11-rho.vercel.app/update/${params.id}`)
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
       },
     ]
   },

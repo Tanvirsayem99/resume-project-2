@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "daisyui": "^2.51.6",
     "firebase": "^9.22.0",
     "localforage": "^1.10.0",
@@ -19,7 +20,8 @@
     "react-router-dom": "^6.11.1",
     "react-tabs": "^6.0.1",
     "sort-by": "^1.2.0",
-    "sweetalert2": "^11.7.5"
+    "sweetalert2": "^11.7.5",
+    "typed.js": "^2.0.16"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

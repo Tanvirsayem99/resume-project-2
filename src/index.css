@@ -8,8 +8,8 @@
  
   .box{
    position: relative;
-   width: 430px;
-   height: 350px;
+   /* width: 430px;
+   height: 350px; */
    background:  #1c1c1c;
    border-radius: 8px;
    overflow: hidden;
@@ -116,4 +116,9 @@
     }
   }
 
-  
+.box:hover{
+  transform: scale(110%);
+  transition: 1s;
+}
+
+

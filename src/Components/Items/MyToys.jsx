@@ -13,7 +13,7 @@ const MyToys = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`https://assignment-11-server-one-blush.vercel.app/myToys/${user?.email}`)
+    fetch(`https://assignment-11-rho.vercel.app/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, [user]);

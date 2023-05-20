@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useTile from '../../hooks/useTitle';
 import { AuthContext } from '../../Provider/AuthProvider';
+import bgImg from '../../../public/bg-img.jpg'
 
 const Login = () => {
     useTile('Login')
@@ -41,19 +42,25 @@ const Login = () => {
         })
     }
     return (
-        <form className='grid w-96 mx-auto gap-10 bg-orange-200 p-5 rounded-md' onSubmit={handleLogin}>
-            <h1 className='text-center font-semibold text-2xl'>Login</h1>
-            <input type="email" name='email' required className='bg-slate-200 border border-black'/>
+        <div className="bg-[url('https://r4.wallpaperflare.com/wallpaper/531/951/621/digital-digital-art-artwork-illustration-minimalism-hd-wallpaper-08869d3810a06c28a09cf1be487204ea.jpg')] py-20 bg-no-repeat">
+            <form className='grid w-96 mx-auto gap-10 bg-transparent border border-gray-200 p-5 rounded-md' onSubmit={handleLogin}>
+            <h1 className='text-center font-semibold text-2xl text-white'>Login</h1>
+            <div className='grid'>
+            <span className='text-white ml-2'>Email</span>
+            <input type="email" name='email' required className='bg-slate-200 border-b-2 bg-transparent focus:bg-white duration-1000 transition '/>
+            </div>
             <input type="password" name='password' required className='bg-slate-200 border border-black'/>
             <div className='flex gap-2'>
-            <p>don't have account?</p><Link to="/register">Register</Link>
+            <p className='text-white'>don't have account?</p><Link className='text-white' to="/register">Register</Link>
             </div>
             {
                 faulty? <p className='text-red-500'>{faulty} Please Try Again</p> : ''
             }
-            <input type="submit" value="Login" className='cursor-pointer'/>
-            <div onClick={handleGoogleLogin} className="cursor-pointer">Google login</div>
+            <input type="submit" value="Login" className='cursor-pointer btn btn-outline btn-accent'/>
+            <div onClick={handleGoogleLogin} className="cursor-pointer btn btn-accent">Google login</div>
+            
         </form>
+        </div>
     );
 };
 

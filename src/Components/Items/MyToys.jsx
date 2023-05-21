@@ -35,6 +35,7 @@ if(items.length == 0){
 }
   return (
     <div className="w-11/12 mx-auto">
+      <h1 className="font-semibold text-center my-5 text-3xl">My Toy</h1>
       <div className="justify-end my-10 flex gap-5">
         <button onClick={handlesortHigh} className="btn btn-outline">price High To Low</button>
         <button onClick={handlesortLow} className="btn btn-outline">Price low to high</button>
@@ -44,10 +45,14 @@ if(items.length == 0){
           <thead>
             <tr>
               <th>Seller</th>
+              <th>Photo</th>
+              <th>Email</th>
               <th>Toy Name</th>
               <th>Category</th>
               <th>Price</th>
+              <th>rating</th>
               <th>Quantity</th>
+              <th>Description</th>
               <th>Update</th>
               <th>Delete</th>
             </tr>
@@ -55,9 +60,9 @@ if(items.length == 0){
           <tbody className="w-11/12 mx-auto">
             
             {value.length !== 0? value.map((e) => (
-              <MySingleToys key={e._id} data={e} setItems={setItems} setValue={setValue}></MySingleToys>
+              <MySingleToys key={e._id} data={e} items = {items} value={value}setItems={setItems} setValue={setValue}></MySingleToys>
             )) :items.map((e) => (
-              <MySingleToys key={e._id} data={e} setItems={setItems} setValue={setValue}></MySingleToys>
+              <MySingleToys key={e._id} data={e} setItems={setItems} items = {items} value={value} setValue={setValue}></MySingleToys>
             ))}
           </tbody>
         </table>

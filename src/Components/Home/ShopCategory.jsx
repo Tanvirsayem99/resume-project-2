@@ -20,10 +20,10 @@ const ShopCategory = () => {
       .then(data => {setItems(data), setLoader(false)})
       }
     return (
-        <Tabs className="w-11/12 mx-auto">
+        <Tabs className="w-11/12 mx-auto bg-black">
     
-    <TabList>
-      <Tab><p onClick={()=>handleCategory('car')}>sports car</p></Tab>
+    <TabList className="bg-white">
+      <Tab><p onClick={()=>handleCategory('sports')}>sports car</p></Tab>
       <Tab><p onClick={()=>handleCategory('truck')}>truck</p></Tab>
       <Tab><p onClick={()=>handleCategory('policeCar')}>policeCar</p></Tab>
     </TabList>

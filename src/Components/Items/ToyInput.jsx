@@ -26,8 +26,10 @@ const ToyInput = () => {
     const rating = form.rating.value;
     const quantity = form.quantity.value;
     const description = form.description.value;
-
-    if (category == "Select a category") {
+    if(rating.length == 3 || rating > 5){
+      return alert('please enter valid rating')
+    }
+    if (category == "Select a category" || category.length == 0) {
       return setMsg("please select At least one category");
     }
 
@@ -50,7 +52,6 @@ const ToyInput = () => {
       body: JSON.stringify(items),
     })
       .then((data) => {
-        console.log(data),
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -125,7 +126,7 @@ const ToyInput = () => {
         className="select select-bordered w-full max-w-xs bg-transparent text-white "
       >
         <option defaultValue=" " className="text-black hidden" >Select a category</option>
-        <option value="car" className="text-black">normal car</option>
+        <option value="car" className="text-black">Sports car</option>
         <option value="truck" className="text-black">truck</option>
         <option value="policeCar" className="text-black">mini police car</option>
       </select>

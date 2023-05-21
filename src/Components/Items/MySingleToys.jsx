@@ -2,11 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const MySingleToys = ({data, setValue, setItems}) => {
+const MySingleToys = (props) => {
+  const {data, setValue, setItems} = props
     const {category, description, email, name, picture, price, quantity,
         rating, sellerName} = data;
-
+const singleData = props.items
+const singleDatas = props.value
         const handleDelete = id =>{
+          
+          
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                   confirmButton: 'btn btn-success',
@@ -30,19 +34,22 @@ const MySingleToys = ({data, setValue, setItems}) => {
         })
         .then(data =>{
             console.log(data)
-            if(data.deletedCount > 0){
+              const  result =  singleData.filter(item =>
+                item._id !== id
+              );
+              setItems(result)
+              const  results =  singleDatas.filter(item =>
+                item._id !== id
+              );
+              setValue(results)
                 swalWithBootstrapButtons.fire(
                     'Deleted!',
                     'Your toys has been deleted.',
                     'success'
                   );
-                 const  result =  items.filter(item =>
-                    item._id !== id
-                  );
-                  console.log(result)
-                  setItems(result)
+                 
                   
-            }
+            
         })
                 
                 } else if (
@@ -62,10 +69,14 @@ const MySingleToys = ({data, setValue, setItems}) => {
             {
                 sellerName? <td>{sellerName}</td>: ''
             }
+            <td><img src={picture} alt="" /></td>
+            <td>{email}</td>
         <td>{name}</td>
         <td>{category}</td>
         <td>{price}</td>
+        <td>{rating}</td>
         <td>{quantity}</td>
+        <td>{description}</td>
         <td><Link to={`/update/${data._id}`} className='bg-red-300 p-3 rounded-md hover:bg-lime-400 transition-all'>Update</Link></td>
         <td><button onClick={()=>handleDelete(data._id)} className='bg-red-300 p-3 rounded-md hover:bg-lime-400 transition-all'>Delete</button></td>
             

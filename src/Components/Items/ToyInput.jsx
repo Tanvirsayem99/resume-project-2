@@ -126,8 +126,8 @@ const ToyInput = () => {
         className="select select-bordered w-full max-w-xs bg-transparent text-white "
       >
         <option defaultValue=" " className="text-black hidden" >Select a category</option>
-        <option value="car" className="text-black">Sports car</option>
-        <option value="truck" className="text-black">truck</option>
+        <option value="Sports" className="text-black">Sports car</option>
+        <option value="trucks" className="text-black">truck</option>
         <option value="policeCar" className="text-black">mini police car</option>
       </select>
       </div>

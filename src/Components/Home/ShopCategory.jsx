@@ -9,7 +9,7 @@ const ShopCategory = () => {
       const[loader, setLoader] = useState(true)
       const[loaders, setLoaders] = useState(true)
      useEffect(()=>{
-      fetch(`https://assignment-11-rho.vercel.app/home/car`)
+      fetch(`https://assignment-11-rho.vercel.app/home/sports`)
       .then(res => res.json())
       .then(data => {setItems(data), setLoaders(false)})
      },[]) 
@@ -24,7 +24,7 @@ const ShopCategory = () => {
     
     <TabList className="bg-white">
       <Tab><p onClick={()=>handleCategory('sports')}>sports car</p></Tab>
-      <Tab><p onClick={()=>handleCategory('truck')}>truck</p></Tab>
+      <Tab><p onClick={()=>handleCategory('trucks')}>truck</p></Tab>
       <Tab><p onClick={()=>handleCategory('policeCar')}>policeCar</p></Tab>
     </TabList>
   

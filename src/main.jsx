@@ -56,7 +56,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/update/:id',
-        element: <UpdateToy></UpdateToy>,
+        element: <PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>,
         loader: ({params}) => fetch(`https://assignment-11-rho.vercel.app/update/${params.id}`)
       },
       {

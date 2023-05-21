@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const MySingleToys = ({data}) => {
+const MySingleToys = ({data, setValue, setItems}) => {
     const {category, description, email, name, picture, price, quantity,
         rating, sellerName} = data;
 
@@ -35,7 +35,13 @@ const MySingleToys = ({data}) => {
                     'Deleted!',
                     'Your toys has been deleted.',
                     'success'
-                  )
+                  );
+                 const  result =  items.filter(item =>
+                    item._id !== id
+                  );
+                  console.log(result)
+                  setItems(result)
+                  
             }
         })
                 

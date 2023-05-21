@@ -36,8 +36,12 @@ const Navbar = () => {
             >
              <NavLink to="/" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Home</NavLink>
             <NavLink to="/toys" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>All Toys</NavLink>
-            <NavLink to="/myToys" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>My Toys</NavLink>
-            <NavLink to="/add" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Add A Toy</NavLink>
+            {
+              user? <div className="grid md:grid-cols-2">
+              <NavLink to="/myToys" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>My Toys</NavLink>
+              <NavLink to="/add" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Add A Toy</NavLink>
+              </div> : ''
+            }
             {
                 user? <NavLink onClick={handleLogOut} className="btn btn-active btn-secondary">Log Out</NavLink> : <NavLink to="/login" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Login</NavLink>
             }
@@ -51,8 +55,12 @@ const Navbar = () => {
           
             <NavLink to="/" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Home</NavLink>
             <NavLink to="/toys" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>All Toys</NavLink>
-            <NavLink to="/myToys" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>My Toys</NavLink>
-            <NavLink to="/add" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Add A Toy</NavLink>
+            {
+              user? <div className="grid md:grid-cols-2">
+              <NavLink to="/myToys" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>My Toys</NavLink>
+              <NavLink to="/add" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Add A Toy</NavLink>
+              </div> : ''
+            }
             {
                 user? <NavLink onClick={handleLogOut} className="btn btn-active btn-secondary">Log Out</NavLink> : <NavLink to="/login" className={({ isActive }) => (isActive ? 'text-lime-500' : 'text-black')}>Login</NavLink>
             }
@@ -60,11 +68,11 @@ const Navbar = () => {
           
         </div>
         <div className="navbar-end flex gap-3">
+          
           {
-            user?.displayName? <p className="text-sm">{user.displayName}</p>: ''
-          }
-          {
-            user?.photoURL? <img src={user.photoURL} className="w-10 rounded-full"/>: ''
+            user?.photoURL? <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+            <img src={user.photoURL} className="w-10 rounded-full"/>
+          </div>: ''
           }
         </div>
       </div>

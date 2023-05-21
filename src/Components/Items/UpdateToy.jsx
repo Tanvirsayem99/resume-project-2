@@ -39,36 +39,41 @@ const UpdateToy = () => {
       .then((error) => console.log(error));
   };
   return (
-    <div>
+    <div className="bg-black py-10">
       <form onSubmit={handleSubmit} className="grid gap-5 w-4/6 mx-auto">
-        <input
-          type="number"
-          name="price"
-          defaultValue={user.price}
-          className="bg-slate-200 p-1 pl-2"
-          placeholder="Enter Price"
-          required
-        />
-        <input
-          type="number"
-          name="quantity"
-          defaultValue={user.quantity}
-          className="bg-slate-200 p-1 pl-2"
-          placeholder="Enter Quantity"
-          required
-        />
-        <input
-          type="text"
-          name="description"
-          defaultValue={user.description}
-          className="bg-slate-200 p-1 pl-2"
-          placeholder="Write Description"
-          required
-        />
+      <h1 className="text-center text-2xl font-bold text-sky-500 font-serif">UPDATE A TOY</h1>
+      <div className="boss w-full relative">
+      <span className="text-sky-500">Price</span>
+      <input
+        type="number"
+        name="price"
+        defaultValue={user?.price}
+        className="field w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"
+        required
+        placeholder="|"
+      />
+      </div>
+      <div className="boss w-full relative">
+      <span className="text-sky-500">Quantity</span>
+      <input
+        type="number"
+        name="quantity"
+        defaultValue={user?.quantity}
+        className="field w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"
+        required
+        placeholder="|"
+      />
+      </div>
+        <div className="boss w-full relative">
+      <span className="text-sky-500">Description</span>
+      <textarea name="description"  cols="30" rows="10" defaultValue={user?.description} className="field  w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"></textarea>
+      </div>
         {/* {
                 msg? <p className='text-red-500'>{msg}</p> : ''
             } */}
-        <input type="submit" className="cursor-pointer" value="Update Toys" />
+         <div className="text-center">
+      <input type="submit" value="Update" className="cursor-pointer py-1 px-5 text-white hover:bg-sky-500 border-2  border-sky-500" />
+      </div>
       </form>
     </div>
   );

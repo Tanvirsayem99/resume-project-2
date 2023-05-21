@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import useTile from '../../hooks/useTitle';
 import SingleToy from './SingleToy';
-
+import icon from '../../../public/search.png'
 const AllToys = () => {
   useTile('All Toy')
     const [datas, setDatas] = useState([])
@@ -39,21 +39,25 @@ const AllToys = () => {
         );
   }
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='bg-black'>
+          <div className='w-11/12 mx-auto py-10'>
             <form className='text-center my-10' onSubmit={() =>handleSearch (event)}>
-                <input type="text" name="name" className='bg-slate-200 pl-2 py-2 rounded-lg w-96' placeholder='Search item' />
-                <input type="submit"  />
+                <div className='relative w-96 mx-auto'>
+                <input type="text" name="name" className='bg-transparent border-2 pl-4 p-3 text-white w-full rounded-3xl border-sky-500 outline-none pl-2' placeholder='Search item' />
+                <button className='text-white'><img src={icon} alt="" className='w-8 absolute top-3 right-2 ' /></button>
+                </div>
+                
             </form>
-            <div className="overflow-x-auto">
-  <table className="table w-full">
+            <div className="overflow-x-auto bg-transparent">
+  <table className="table w-full bg-transparent">
     <thead>
-      <tr>
-        <th>Seller</th>
-        <th>Toy Name</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Action</th>
+      <tr className='bg-transparent'>
+        <th className='bg-transparent text-white hover:bg-sky-500 hover:text-white border-2 border-white'>Seller</th>
+        <th className='bg-transparent text-white hover:bg-sky-500 hover:text-white border-2 border-white'>Toy Name</th>
+        <th className='bg-transparent text-white hover:bg-sky-500 hover:text-white border-2 border-white'>Category</th>
+        <th className='bg-transparent text-white hover:bg-sky-500 hover:text-white border-2 border-white'>Price</th>
+        <th className='bg-transparent text-white hover:bg-sky-500 hover:text-white border-2 border-white'>Quantity</th>
+        <th className='bg-transparent text-white hover:bg-sky-500 hover:text-white border-2 border-white'>Action</th>
       </tr>
     </thead>
     <tbody className='w-11/12 mx-auto'>
@@ -69,6 +73,7 @@ const AllToys = () => {
   </table>
 </div>
             
+        </div>
         </div>
     );
 };

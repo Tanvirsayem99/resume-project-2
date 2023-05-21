@@ -1,15 +1,19 @@
 import React from 'react';
 import CategoryDetails from './CategoryDetails';
 
-const SingleCategory = ({items, loader}) => {
-    if(loader){
+const SingleCategory = ({items, loaders}) => {
+    if(loaders){
         return (
             <div className="text-center my-10">
               <button className="btn btn-square loading "></button>
             </div>
           );
     }
-    
+    if(items.length == 0){
+        return <p className='text-center text-4xl my-44'>
+            No product available
+        </p>
+    }
     return (
         <div className='grid gap-5 md:grid-cols-3 w-11/12 mx-auto'>
             {

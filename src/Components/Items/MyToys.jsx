@@ -28,6 +28,11 @@ const MyToys = () => {
   setValue(result)
   setValue([])
 }
+if(items.length == 0){
+  return <p>
+    No Product Available
+  </p>
+}
   return (
     <div className="w-11/12 mx-auto">
       <div className="justify-end my-10 flex gap-5">
@@ -50,9 +55,9 @@ const MyToys = () => {
           <tbody className="w-11/12 mx-auto">
             
             {value.length !== 0? value.map((e) => (
-              <MySingleToys key={e._id} data={e}></MySingleToys>
+              <MySingleToys key={e._id} data={e} setItems={setItems} setValue={setValue}></MySingleToys>
             )) :items.map((e) => (
-              <MySingleToys key={e._id} data={e}></MySingleToys>
+              <MySingleToys key={e._id} data={e} setItems={setItems} setValue={setValue}></MySingleToys>
             ))}
           </tbody>
         </table>

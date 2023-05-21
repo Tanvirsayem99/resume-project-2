@@ -64,83 +64,114 @@ const ToyInput = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-5 w-4/6 mx-auto">
+   <div className="bg-black">
+     <form onSubmit={handleSubmit} className="grid gap-5 md:w-2/4 w-11/12 mx-auto py-10">
+      <h1 className="text-center text-2xl font-bold text-sky-500 font-serif">SUBMIT A TOY</h1>
+      <div className="boss w-full relative">
+      <span className="text-sky-500">Photo Url</span>
       <input
         type="url"
         name="picture"
-        className="bg-slate-200 p-1 pl-2"
-        placeholder="Enter Photo URL"
+        className="field w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"
         required
+        placeholder="|"
       />
+      </div>
+      <div className="boss w-full relative">
+      <span className="text-sky-500">Toy Name</span>
       <input
         type="name"
         name="name"
-        className="bg-slate-200 p-1 pl-2"
-        placeholder="Enter Toy name"
+        className="field w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"
+        placeholder="|"
         required
       />
+      </div>
+      <div className="boss w-full relative">
+      <span className="text-sky-500">Seller Name</span>
       {user?.displayName ? (
         <input
           type="text"
           name="sellerName"
-          className="bg-slate-200 p-1 pl-2"
+          className="field w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"
           defaultValue={user?.displayName}
           readOnly
         />
       ) : (
         ""
       )}
+      </div>
+      <div className="boss w-full relative">
+      <span className="text-sky-500">Email</span>
       {user?.email ? (
         <input
           type="text"
           name="email"
-          className="bg-slate-200 p-1 pl-2"
+          className="field w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"
           defaultValue={user?.email}
           readOnly
         />
       ) : (
         ""
       )}
+      </div>
+      
+      
+      
+      <div className="grid w-full relative">
+      <span className="text-sky-500">Email</span>
       <select
         onClick={handleOp}
-        className="select select-bordered w-full max-w-xs"
+        className="select select-bordered w-full max-w-xs bg-transparent text-white "
       >
-        <option defaultValue=" ">Select a category</option>
-        <option value="car">normal car</option>
-        <option value="truck">truck</option>
-        <option value="policeCar">mini police car</option>
+        <option defaultValue=" " className="text-black hidden" >Select a category</option>
+        <option value="car" className="text-black">normal car</option>
+        <option value="truck" className="text-black">truck</option>
+        <option value="policeCar" className="text-black">mini police car</option>
       </select>
+      </div>
+      <div className="boss w-full relative">
+      <span className="text-sky-500">Price</span>
       <input
         type="number"
         name="price"
-        className="bg-slate-200 p-1 pl-2"
-        placeholder="Enter Price"
+        className="field w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"
+        placeholder="|"
         required
       />
+      </div>
+      <div className="boss w-full relative">
+      <span className="text-sky-500">Rating</span>
       <input
         type="number"
         name="rating"
-        className="bg-slate-200 p-1 pl-2"
-        placeholder="Enter Rating"
+        className="field w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"
+        placeholder="|"
         required
       />
+      </div>
+      <div className="boss w-full relative">
+      <span className="text-sky-500">Quantity</span>
       <input
         type="number"
         name="quantity"
-        className="bg-slate-200 p-1 pl-2"
-        placeholder="Enter Quantity"
+        className="field w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"
+        placeholder="|"
         required
       />
-      <input
-        type="text"
-        name="description"
-        className="bg-slate-200 p-1 pl-2"
-        placeholder="Write Description"
-        required
-      />
+      </div>
+      <div className="boss w-full relative">
+      <span className="text-sky-500">Description</span>
+      <textarea name="description"  cols="30" rows="10" placeholder="|" className="field  w-full bg-transparent text-white p-1 pl-2 outline-none border-b-4 border-sky-500"></textarea>
+      </div>
+      
+      
       {msg ? <p className="text-red-500">{msg}</p> : ""}
-      <input type="submit" className="cursor-pointer" />
+      <div className="text-center">
+      <input type="submit" className="cursor-pointer py-1 px-5 text-white hover:bg-sky-500 border-2  border-sky-500" />
+      </div>
     </form>
+   </div>
   );
 };
 

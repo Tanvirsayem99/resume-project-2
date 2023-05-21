@@ -7,10 +7,11 @@ import SingleCategory from './SingleCategory';
 const ShopCategory = () => {
       const [items, setItems] = useState([])
       const[loader, setLoader] = useState(true)
+      const[loaders, setLoaders] = useState(true)
      useEffect(()=>{
       fetch(`https://assignment-11-rho.vercel.app/home/car`)
       .then(res => res.json())
-      .then(data => {setItems(data), setLoader(false)})
+      .then(data => {setItems(data), setLoaders(false)})
      },[]) 
     
       const handleCategory = event =>{
@@ -22,20 +23,20 @@ const ShopCategory = () => {
         <Tabs className="w-11/12 mx-auto">
     
     <TabList>
-      <Tab><p onClick={()=>handleCategory('car')}>normal car</p></Tab>
+      <Tab><p onClick={()=>handleCategory('car')}>sports car</p></Tab>
       <Tab><p onClick={()=>handleCategory('truck')}>truck</p></Tab>
       <Tab><p onClick={()=>handleCategory('policeCar')}>policeCar</p></Tab>
     </TabList>
   
 
     <TabPanel>
-      <SingleCategory items ={items} loader={loader}></SingleCategory>
+      <SingleCategory items ={items} loaders={loaders}></SingleCategory>
     </TabPanel>
     <TabPanel>
-    <SingleCategory items ={items}></SingleCategory>
+    <SingleCategory items ={items} loaders={loaders}></SingleCategory>
     </TabPanel>
     <TabPanel>
-    <SingleCategory items ={items}></SingleCategory>
+    <SingleCategory items ={items} loaders={loaders}></SingleCategory>
     </TabPanel>
   </Tabs>
     );

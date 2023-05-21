@@ -10,7 +10,7 @@ const SingleCategory = ({items, loaders}) => {
           );
     }
     if(items.length == 0){
-        return <p className='text-center text-4xl my-44 text-white'>
+        return <p className='text-center text-4xl my-44 '>
             No product available
         </p>
     }
